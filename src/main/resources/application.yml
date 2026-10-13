@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+cad:
+  parse:
+    max-entities: 200000
+  dwg:
+    # DWG is proprietary. This app converts DWG -> DXF then reuses the DXF parser.
+    # converter: auto | oda | dwg2dxf | none
+    converter: auto
+    timeout-seconds: 90
+    # Leave empty to auto-detect ODA File Converter under Program Files.
+    oda-converter-path: ""
+    # LibreDWG CLI, if installed and on PATH (or set full path).
+    dwg2dxf-path: "dwg2dxf"
+    output-version: "ACAD2018"
